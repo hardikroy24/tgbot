@@ -24,10 +24,11 @@ def get_main_menu():
     ]
     return InlineKeyboardMarkup(keyboard)
 
-# ✅ /start command
+# ✅ /start command (updated)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "👋 Welcome to Master Bot!\nSelect an option below:",
+        "👋 Hi! I am a chatbot powered by AI, developed by Hardik and hosted by Neeraj.\n"
+        "Select an option below:",
         reply_markup=get_main_menu()
     )
 
@@ -106,7 +107,6 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ✅ Main bot function
 def main():
-    # Switch to Application class for newer versions of python-telegram-bot
     app = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
